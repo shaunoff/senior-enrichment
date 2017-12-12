@@ -31,7 +31,15 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
 	const campusId = req.params.id;
 	Campus.update(req.body, {where: {id: campusId}, returning: true})
-	.then(data => res.json(data[1]));
+	.then(data => {
+		return Campus.findAll({
+			where: {
+				id: campusId
+			},
+			include: [Student]
+		})
+	})
+	.then(data => res.json(data));
 });
 
 router.delete('/:id', (req, res) => {

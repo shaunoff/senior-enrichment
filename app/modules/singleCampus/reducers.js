@@ -6,8 +6,6 @@ export default function reducers(state = {}, action){
       return action.campus;
     case actions.UPDATE_CAMPUS:
       return action.campus;
-    case actions.DELETE_CAMPUS:
-        return {};
     default:
       return state;
   }

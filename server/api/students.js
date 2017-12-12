@@ -5,11 +5,7 @@ const Student = require('../db/models/student');
 
 
 router.get('/', (req, res) => {
-	Student.findAll({
-		order: [
-            ['gpa', 'DESC']
-        ]
-	}).then(data => {
+	Student.findAll({}).then(data => {
 		res.json(data);
 	});
 });

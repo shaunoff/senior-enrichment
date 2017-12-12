@@ -38,7 +38,7 @@ class SingleStudentWrapper extends Component {
 	}
 	handleDelete(){
 		this.props.deleteStudent(this.props.singleStudent.id);
-		this.props.history.push('/students')
+		this.props.history.push('/allstudents')
 	}
 	render() {
 		console.log(this.props)

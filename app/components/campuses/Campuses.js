@@ -12,7 +12,7 @@ class Campuses extends Component {
 					<div style={{display: 'flex',flexWrap: 'wrap', alignItems: 'flex-start'}}>
 					{this.props.campuses.map((campus,index)=>
 						<CampusProfile
-							key={index}
+							key={campus.id}
 							deleteCampus={this.props.deleteCampus}
 							data={campus}
 						/>

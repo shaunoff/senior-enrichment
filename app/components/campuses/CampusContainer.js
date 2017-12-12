@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import Campuses from './Campuses';
 import Scroll from 'react-awesome-scroll';
-import StudentProfile from '../students/StudentProfile'
+import StudentProfile from '../students/StudentProfile';
+import {fetchCampuses} from '../../store';
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
 
 class CampusContainer extends Component {
+	componentDidMount(){
+		this.props.fetchCampuses()
+	}
 
 	render() {
 		return (
@@ -24,5 +30,14 @@ class CampusContainer extends Component {
 	}
 
 }
+function mapStateToProps(state){
+  return {
+    campuses: state.campuses,
+		students: state.students
+  };
+}
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({fetchCampuses}, dispatch);
+}
 
-export default CampusContainer;
+export default connect(mapStateToProps,mapDispatchToProps)(CampusContainer);

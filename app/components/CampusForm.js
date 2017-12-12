@@ -12,7 +12,7 @@ const CampusForm = ({ modal,history,initialValues,reset, updateCampus, addCampus
 				addCampus(formData);
 				reset();
 				modal()
-				history.push('/students')
+				history.push(`/campuses/`)
 			}
 
 		})}

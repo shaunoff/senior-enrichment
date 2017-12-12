@@ -27,7 +27,7 @@ export function deleteCampus (id) {
   return function thunk (dispatch) {
     return axios.delete(`/api/campuses/${id}`)
       .then( data => {
-        const action = { type: actions.DELETE_CAMPUS};
+        const action = { type: actions.DELETE_CAMPUS, id};
         dispatch(action);
       });
   };

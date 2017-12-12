@@ -80,8 +80,10 @@ export default function reducer (state = [], action) {
     case GET_CAMPUSES:
       return [...state,...action.campuses];
     case ADD_CAMPUS:
+      console.log("add campus", action)
       return [...state,action.campus];
 		case DELETE_CAMPUS:
+      console.log("acccctionnnn" , action)
 			const newCampuses = state.filter(campus => campus.id !== action.id)
       return newCampuses;
     case UPDATE_CAMPUS:

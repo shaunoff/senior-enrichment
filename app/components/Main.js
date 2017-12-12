@@ -48,7 +48,7 @@ class Main extends Component{
     return (
       <div>
         <div style={{display: 'flex'}}>
-          <Link to="/students">students</Link>
+          <Link to="/allstudents">students</Link>
           <Link to="/campuses">Campuses</Link>
           <AddButton history={history} addStudent={this.props.addStudent} addCampus={this.props.addCampus}/>
         </div>
@@ -63,19 +63,12 @@ class Main extends Component{
                 <Route path='/students/:id' component={SingleStudentContainer} />
                 <Route path='/allstudents' component={StudentsContainer} />
                 <Route path='/campuses/:id' component={SingleCampusContainer} />
-                <Route exact path="/" component={StudentContainer}
+                <Route exact path="/" component={StudentsContainer}
                 />
                 <Route
-                exact path="/students" component={StudentContainer}
+                exact path="/allstudents" component={StudentsContainer}
                 />
-                <Route
-                path="/campuses" render={() =>
-                  (<CampusContainer
-                    deleteCampus={this.props.deleteCampus}
-                    addCampus={this.props.addCampus}
-                    campuses={this.props.campuses}
-                    students={this.props.students}
-                  />)}
+                <Route path="/campuses" component={CampusContainer} />
                 />
               </Switch>
             </CSSTransition>

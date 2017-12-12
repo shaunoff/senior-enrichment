@@ -6,7 +6,7 @@ import Info from 'react-icons/lib/io/ios-informatoutline';
 
 
 const StudentProfile = ({data}) => (
-	<Link to={`students/${data.id}`} style={styles.studentBlock}>
+	<div style={styles.studentBlock}>
 		<div style={styles.svgWrapper}>
 				<img style={styles.studentSvg} src={`/graphics/${(data.id%30)+1}.svg`}/>
 		</div>
@@ -16,10 +16,14 @@ const StudentProfile = ({data}) => (
 			<ReactStars style={{marginTop: "-10px"}} count={5} edit={false} half={true} value={parseFloat(data.gpa)} size={14} color1="#ccc" color2={'#93a5cf'} />
 		</div>
 		<div style={{width: "50px",display: "flex", flexDirection: 'column', justifyContent: 'space-between', alignItems: 'flex-end'}}>
-			<img style={{width: "40px",opacity: '0.7',filter: "drop-shadow(2px 2px 2px grey)"}} src={`/graphics/planets/${(data.campusId%10)+1}.svg`}/>
-			<Info style={{fontSize: '40px',width: "40px", color:"#ccc"}} />
+			<Link to={`/campuses/${data.campusId}`}>
+				<img style={{width: "40px",opacity: '0.7',filter: "drop-shadow(2px 2px 2px grey)"}} src={`/graphics/planets/${(data.campusId%10)+1}.svg`}/>
+			</Link>
+			<Link to={`/students/${data.id}`}>
+				<Info style={{fontSize: '40px',width: "40px", color:"#ccc"}} />
+			</Link>
 		</div>
-	</Link>
+	</div>
 );
 
 export default StudentProfile;
