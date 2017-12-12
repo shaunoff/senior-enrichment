@@ -1,0 +1,3 @@
+export const GET_STUDENT = 'GET_STUDENT';
+export const ADD_ASSESSMENT = 'ADD_ASSESSMENT';
+export const UPDATE_STUDENT = 'UPDATE_STUDENT';
